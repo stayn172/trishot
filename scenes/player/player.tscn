@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c3l6xb6v0nsrv"]
+
+[ext_resource type="Script" uid="uid://boq5beha6ab0r" path="res://scenes/player/player.gd" id="1_kpjcp"]
+[ext_resource type="PackedScene" uid="uid://dwk7wf1ko1rqq" path="res://scenes/player/pistol.tscn" id="2_kne1u"]
+
+[node name="Player" type="XROrigin3D" unique_id=1296116272]
+script = ExtResource("1_kpjcp")
+
+[node name="Camera" type="XRCamera3D" parent="." unique_id=1881132504 groups=["player"]]
+
+[node name="LeftController" type="XRController3D" parent="." unique_id=2097248496]
+tracker = &"left_hand"
+
+[node name="Pistol" parent="LeftController" unique_id=1573285835 instance=ExtResource("2_kne1u")]
+
+[node name="RightController" type="XRController3D" parent="." unique_id=48980736]
+tracker = &"right_hand"
+
+[node name="Pistol" parent="RightController" unique_id=757225163 instance=ExtResource("2_kne1u")]

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d1bvnlki5o4a7"]
+
+[ext_resource type="Script" uid="uid://cexaa7xxlrm82" path="res://scenes/ui/score.gd" id="1_pyjjy"]
+
+[node name="ScoreUI" type="Label3D" unique_id=210117277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, -4)
+pixel_size = 0.015
+double_sided = false
+text = "Time: 00:00"
+font_size = 64
+script = ExtResource("1_pyjjy")

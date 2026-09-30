@@ -1,0 +1,22 @@
+# Godot 4+ ignores
+.godot/
+*.translation
+
+# Mono / C# (falls später verwendet)
+.mono/
+[Gg]lobal.json
+
+# Betriebssystem & Editoren
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+.vscode/
+.idea/
+
+# Export-Builds
+builds/
+exports/
+*.apk
+*.aab
+*.exe

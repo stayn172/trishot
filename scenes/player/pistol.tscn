@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dwk7wf1ko1rqq"]
+
+[ext_resource type="Script" uid="uid://b2evweoqf7qpn" path="res://scenes/player/pistol.gd" id="1_uevot"]
+[ext_resource type="Material" uid="uid://densu2wiy80mj" path="res://assets/materials/pistol.tres" id="2_pd0w2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_barrel"]
+size = Vector3(0.04, 0.05, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_grip"]
+material = ExtResource("2_pd0w2")
+size = Vector3(0.035, 0.1, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_indicator"]
+size = Vector3(0.006, 0.015, 0.002)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yellow"]
+albedo_color = Color(1, 0.9, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.8, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_sight_post"]
+size = Vector3(0.004, 0.012, 0.006)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sight"]
+albedo_color = Color(0.2, 0.9, 0.2, 1)
+emission_enabled = true
+emission = Color(0.2, 0.9, 0.2, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_laser"]
+top_radius = 0.002
+bottom_radius = 0.002
+height = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_laser"]
+transparency = 1
+albedo_color = Color(0, 1, 0, 0.6)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 3.0
+
+[node name="Pistol" type="Node3D" unique_id=819760581]
+script = ExtResource("1_uevot")
+
+[node name="BarrelMesh" type="MeshInstance3D" parent="." unique_id=1476041009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, -0.06)
+mesh = SubResource("BoxMesh_barrel")
+
+[node name="GripMesh" type="MeshInstance3D" parent="." unique_id=363151503]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, -0.03, 0)
+mesh = SubResource("BoxMesh_grip")
+
+[node name="Muzzle" type="Marker3D" parent="." unique_id=117446918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, -0.17)
+
+[node name="AmmoBars" type="Node3D" parent="." unique_id=1919825790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051598087, 0.041)
+
+[node name="Bar1" type="MeshInstance3D" parent="AmmoBars" unique_id=1634500407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01, 0, 0)
+mesh = SubResource("BoxMesh_indicator")
+surface_material_override/0 = SubResource("StandardMaterial3D_yellow")
+
+[node name="Bar2" type="MeshInstance3D" parent="AmmoBars" unique_id=1827443367]
+mesh = SubResource("BoxMesh_indicator")
+surface_material_override/0 = SubResource("StandardMaterial3D_yellow")
+
+[node name="Bar3" type="MeshInstance3D" parent="AmmoBars" unique_id=1782518338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0, 0)
+mesh = SubResource("BoxMesh_indicator")
+surface_material_override/0 = SubResource("StandardMaterial3D_yellow")
+
+[node name="IronSights" type="Node3D" parent="." unique_id=1568264920]
+
+[node name="FrontSight" type="MeshInstance3D" parent="IronSights" unique_id=110239073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06631877, -0.155)
+mesh = SubResource("BoxMesh_sight_post")
+surface_material_override/0 = SubResource("StandardMaterial3D_sight")
+
+[node name="RearSightLeft" type="MeshInstance3D" parent="IronSights" unique_id=1069191776]
+transform = Transform3D(1, 0, 0, 0, 0.69603896, 0, 0, 0, 1, -0.008, 0.06583996, 0.035)
+mesh = SubResource("BoxMesh_sight_post")
+
+[node name="RearSightRight" type="MeshInstance3D" parent="IronSights" unique_id=1050737861]
+transform = Transform3D(1, 0, 0, 0, 0.69603896, 0, 0, 0, 1, 0.008, 0.06583996, 0.035)
+mesh = SubResource("BoxMesh_sight_post")
+
+[node name="Laser" type="MeshInstance3D" parent="." unique_id=873500522]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.02, -10.16)
+mesh = SubResource("CylinderMesh_laser")
+surface_material_override/0 = SubResource("StandardMaterial3D_laser")
